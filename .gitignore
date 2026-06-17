@@ -1,0 +1,40 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environment ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Tests / coverage ─────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Generated outputs (keep source .py files inside output/) ─────────────────
+# Default run (no --tag)
+output/results/
+output/checkpoint.json
+output/figures/*.png
+output/figures/*.pdf
+output/figures/*.svg
+output/figures/*.eps
+output/latex/*.tex
+
+# Tagged runs — output/<tag>/ is fully generated, never commit (except 'final')
+output/*/
+!output/final/
+!output/final/**
+
+# ── IDE / OS ─────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db

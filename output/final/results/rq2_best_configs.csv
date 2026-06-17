@@ -1,0 +1,5 @@
+base_model,M,eta,mean_rank
+MLPBoost,50,0.2,3.775
+RidgeBoost,30,0.05,5.075
+SVRBoost,50,0.2,4.1
+TreeBoost,50,0.2,3.925

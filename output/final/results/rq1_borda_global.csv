@@ -1,0 +1,10 @@
+model,total_borda_score
+HINNPerf,909
+CART,833
+TreeBoost,806
+XGBoost,770
+RidgeBoost,499
+RR,471
+SVR,416
+SVRBoost,325
+MLPBoost,238
