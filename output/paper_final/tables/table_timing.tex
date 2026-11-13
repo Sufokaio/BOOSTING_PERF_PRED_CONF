@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{Mean training time (s) and mean prediction time (ms) per run of the selected variants. HINNPerf training time is its hyperparameter search; its prediction time was measured separately without retraining (mean over its candidate network shapes).}
+\label{tab:rq3-time}
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{Training (s)} & \multicolumn{2}{c}{Prediction (ms)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Model & All & S$_1$ & All & S$_1$ \\
+\midrule
+CART & 0.012 & 0.009 & 1.86 & 1.78 \\
+HINNPerf & 2219.22 & 1693.06 & 53.37 & 52.44 \\
+MLPBoost & 147.23 & 62.50 & 521.13 & 875.69 \\
+RR & 0.004 & 0.003 & 2.44 & 2.40 \\
+RidgeBoost & 0.271 & 0.281 & 81.30 & 111.11 \\
+SVR & 0.014 & 0.002 & 41.98 & 13.09 \\
+SVRBoost & 1.71 & 0.357 & 1832.31 & 755.87 \\
+TreeBoost & 0.399 & 0.387 & 3.19 & 3.54 \\
+XGBoost & 0.863 & 0.598 & 3.72 & 3.90 \\
+\bottomrule
+\end{tabular}
+\end{table}

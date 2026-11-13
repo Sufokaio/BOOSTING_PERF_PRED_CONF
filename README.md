@@ -27,12 +27,18 @@ GBoosting/
 ├── experiments/
 │   ├── rq1_accuracy.py      Trains all model variants, records metrics + timing
 │   ├── rq2_sensitivity.py   (Not used anymore)  (RQ2 data lives in rq1_raw.csv)
-│   └── rq3_cost.py          Extracts timing summary from rq1_raw.csv
+│   ├── rq3_cost.py          Extracts timing summary from rq1_raw.csv
+│   ├── val_scores.py        Validation scores of every model variant
+│   └── hinnperf_pred_time.py  HINNPerf prediction time without retraining
 │
 ├── analysis/
 │   ├── rq1_analysis.py      Best-config selection, Scott-Knott
 │   ├── rq2_analysis.py      M × η sensitivity analysis
 │   └── rq3_analysis.py      Cost-accuracy summaries and Pareto frontiers
+│
+├── analysis_val/
+│   ├── run_val_analysis.py  Validation-based selection
+│   └── paper_final.py       Tables and figures of the paper
 │
 ├── evaluation/
 │   ├── metrics.py           MRE, MAE, RMSE, MIBRE
@@ -46,10 +52,12 @@ GBoosting/
 ├── output/
 │   ├── figures/             Figure generation scripts (rq1/rq2/rq3)
 │   ├── latex/               LaTeX table generation scripts (rq1/rq2/rq3)
-│   └── final/               Results from the paper run (--tag final)
-│       ├── results/         All analysis CSVs (rq1_raw.csv is the main source of raw results)
-│       ├── latex/rq1/       Active LaTeX tables used in the paper
-│       └── figures/rq2,rq3/ Active figures used in the paper
+│   ├── final/               Results of the main run (--tag final)
+│   │   ├── results/         All analysis CSVs (rq1_raw.csv is the main source of raw results)
+│   │   ├── latex/rq1/       LaTeX tables
+│   │   └── figures/rq2,rq3/ Figures
+│   ├── val/                 Validation scores and HINNPerf prediction times
+│   └── paper_final/         Tables, figures and numbers used in the paper
 ```
 
 ---
@@ -97,6 +105,20 @@ python run_experiments.py --rq3 --analyse --tables --figures --tag final
 - `--analyse` runs Scott-Knott, sensitivity analysis (RQ2, no separate experiment needed, data is already in `rq1_raw.csv`), and cost-accuracy analysis (RQ3)
 - `--tables` generates LaTeX tables into `output/final/latex/`
 - `--figures` generates PDF + PNG figures into `output/final/figures/`
+
+### Step 3 — Validation-based selection and paper outputs
+
+For each model and scenario, the variant with the lowest median validation MRE (within each run's training sample) is selected, and its test errors are reported.
+
+```bash
+python experiments/val_scores.py
+python experiments/val_scores.py --combine
+python experiments/hinnperf_pred_time.py
+python experiments/hinnperf_pred_time.py --combine
+python analysis_val/paper_final.py
+```
+
+Outputs go to `output/val/` and `output/paper_final/`.
 
 ### The `--tag` flag
 

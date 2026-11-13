@@ -32,6 +32,16 @@ output/latex/*.tex
 output/*/
 !output/final/
 !output/final/**
+!output/paper_final/
+!output/paper_final/**
+!output/val/
+output/val/*
+!output/val/val_raw.csv
+!output/val/hinnperf_time/
+output/val/hinnperf_time/*
+!output/val/hinnperf_time/hinnperf_pred_time.csv
+output/*.zip
+*.log
 
 # ── IDE / OS ─────────────────────────────────────────────────────────────────
 .vscode/

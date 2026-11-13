@@ -1,0 +1,5 @@
+model_family,n,M_50,eta_0_2,M_50_or_eta_0_2,M_50_and_eta_0_2
+MLPBoost,40,32,33,34,31
+RidgeBoost,40,5,6,10,1
+SVRBoost,40,30,35,35,30
+TreeBoost,40,28,29,35,22
